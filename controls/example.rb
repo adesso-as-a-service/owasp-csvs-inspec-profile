@@ -16,3 +16,20 @@ control "tmp-1.0" do                        # A unique ID for this control
     it { should be_directory }
   end
 end
+
+#Example for CSVS
+
+control "CSVS-" do                       
+  impact 1.0                               
+  title "Create /tmp directory"             
+  desc "An optional description..."
+
+  tag 'Docker'
+  tag 'Level:2,3'
+  tag 'daemon configuration'
+  tag 'cis-docker-1.12.0': '2.14'
+
+  describe file("/tmp") do                  
+    it { should be_directory }
+  end
+end

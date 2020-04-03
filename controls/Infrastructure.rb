@@ -2,7 +2,13 @@
 # copyright: 2020, Roozbeh Rashedi
 # Reference for some controls are cis-benchmark-docker-inspec
 
-title "Security Verification Requirments"
+title "Security Verification Requirments for Infrastructure"
+
+# Control Objectives
+    # Ensure that the infrastructure provides adequate resources.
+    # Harden the base infrastructure including the container platform.
+   
+
 
 # check if docker exists
 only_if('docker not found') do

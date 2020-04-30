@@ -1,10 +1,10 @@
 name: owasp-csvs-inspec
-title: InSpec Profile
+title: OWASP CSVS InSpec Profile
 maintainer: Roozbeh Rashedi
-copyright: Roozbeh Rashedi
-copyright_email: roozbeh.rashedi@hotmail.com
+copyright: adesso as a service GmbH
+copyright_email: roozbeh.rashedi@adesso-service.com
 license: All Rights Reserved
 summary: An InSpec Compliance Profile to proof the container security requirements of OWASP CSVS.
 version: 0.1.0
 supports:
-  platform: os
+platform: os

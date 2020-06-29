@@ -1,5 +1,5 @@
 # encoding: utf-8
-# copyright: 2020, Roozbeh Rashedi
+# copyright: 2020, adesso as a service GmbH
 # Reference for some controls are cis-benchmark-docker-inspec
 
 title "Security Verification Requirments for Containers"

@@ -9,9 +9,6 @@ title "Security Verification Requirments for Containers"
     # Verify secure handling of cryptographic material.
     # Rotate cryptographic keys on a regular basis.
 
-# attributes
-CONTAINER_USER = attribute('container_user')
-
 # check if docker exists
 only_if('docker not found') do
     command('docker').exist?
@@ -35,7 +32,7 @@ control "CSVS-6.2" do
   end
 end
 
-ontrol "CSVS-6.3" do                       
+control "CSVS-6.3" do                       
   impact 1.0                               
   title "Sensitive information may never be part of a Dockerfile or Docker-Compose file. In particular, verify that e.g. Docker secrets are used for handling sensitive information like API keys and passwords."
   desc "Do not store any secrets in Dockerfiles."

@@ -9,9 +9,6 @@ title "Security Verification Requirments for Orchestration Management"
     # The orchestrator is hardened.
     # Interaction with the orchestrator is mostly automated to avoid human errors.
 
-# attributes
-CONTAINER_USER = attribute('container_user')
-
 # check if docker exists
 only_if('docker not found') do
     command('docker').exist?

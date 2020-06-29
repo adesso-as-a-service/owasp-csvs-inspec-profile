@@ -1,5 +1,5 @@
 # encoding: utf-8
-# copyright: 2020, Roozbeh Rashedi
+# copyright: 2020, adesso as a service GmbH
 # Reference for some controls are cis-benchmark-docker-inspec
 
 title "Security Verification Requirments for Infrastructure"
@@ -8,6 +8,9 @@ title "Security Verification Requirments for Infrastructure"
     # Ensure that the infrastructure provides adequate resources.
     # Harden the base infrastructure including the container platform.
    
+# attributes
+APP_ARMOR_PROFILE = attribute('app_armor_profile')
+SELINUX_PROFILE = attribute('selinux_profile')
 
 
 # check if docker exists

@@ -9,8 +9,6 @@ title "Security Verification Requirments for Containers"
     # Verify secure handling of cryptographic material.
     # Rotate cryptographic keys on a regular basis.
 
-# attributes
-CONTAINER_USER = attribute('container_user')
 
 # check if docker exists
 only_if('docker not found') do

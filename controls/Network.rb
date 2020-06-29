@@ -9,8 +9,9 @@ title "Security Verification Requirments for network"
     # Disable unneeded features and apply restrictions.
     # Enforce encryption when transferring data over networks.
 
-# attributes
-CONTAINER_USER = attribute('container_user')
+#attributes
+SWARM_MODE = attribute('swarm_mode')
+SWARM_MAX_MANAGER_NODES = attribute('swarm_max_manager_nodes')
 
 # check if docker exists
 only_if('docker not found') do
@@ -101,10 +102,10 @@ docker.containers.running?.ids.each do |id|
   end
 end
 
-control "CSVS-7:9" do                       
+control "CSVS-7.9" do                       
   impact 1.0                               
   title "Verify that each application (one or more services) is assigned at least one separate, isolated overlay network in order to ensure Layer 3 segmentation."             
-  desc "The networking mode on a container when set to \'--net=host\', skips placing the container inside separate network stack. In essence, this choice tells Docker to not containerize the container\'s networking. This would network-wise mean that the container lives "outside" in the main Docker host and has full access to its network interfaces."
+  desc "The networking mode on a container when set to \'--net=host\', skips placing the container inside separate network stack. In essence, this choice tells Docker to not containerize the container\'s networking. This would network-wise mean that the container lives 'outside' in the main Docker host and has full access to its network interfaces."
 
   tag 'Docker'
   tag 'Level:2,3'
@@ -119,7 +120,7 @@ control "CSVS-7:9" do
     end
   end
 
-control "CSVS-" do                       
+control "CSVS-7.10" do                       
     impact 1.0                               
     title "Verify that encryption between containers or nodes on the overlay network is enabled."             
     desc "'Encrypt data exchanged between containers on different nodes on the overlay network."
@@ -130,8 +131,8 @@ control "CSVS-" do
     tag 'cis-docker-1.12.0': '2.19'
     ref 'Docker swarm mode overlay network security model', url: 'https://docs.docker.com/engine/userguide/networking/overlay-security-model/'
     ref 'Docker swarm container-container traffic not encrypted when inspecting externally with tcpdump', url: 'https://github.com/moby/moby/issues/24253'
-  
-only_if { SWARM_MODE == 'active' }
+
+    only_if { SWARM_MODE == 'active' }
   if docker_helper.overlay_networks
     docker_helper.overlay_networks.each do |k, _v|
       describe docker_helper.overlay_networks[k] do
@@ -144,15 +145,4 @@ only_if { SWARM_MODE == 'active' }
     end
   end
 end
-
-control "CSVS-" do                       
-  impact 1.0                               
-  title "Verify that published ports are limited to a necessary minimum."             
-  desc "'Dockerfile for a container image defines the ports to be opened by default on a container instance. The list of ports may or may not be relevant to the application you are running within the container."
-
-  tag 'Docker'
-  tag 'Level:1,2,3'
-  tag 'container runtime'
-  tag 'cis-docker-1.12.0': '5.8'
-  ref 'Bind container ports to the host', url: 'https://docs.docker.com/engine/userguide/networking/default_network/binding/'
 end

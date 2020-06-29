@@ -9,9 +9,6 @@ title "Security Verification Requirments for Image Distribution"
     # No sensitive data is stored inside of images.
     # Images are checked for vulnerable components.
 
-# attributes
-CONTAINER_USER = attribute('container_user')
-
 # check if docker exists
 only_if('docker not found') do
     command('docker').exist?

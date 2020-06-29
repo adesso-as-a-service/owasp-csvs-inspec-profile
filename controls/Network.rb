@@ -104,7 +104,7 @@ end
 control "CSVS-7:9" do                       
   impact 1.0                               
   title "Verify that each application (one or more services) is assigned at least one separate, isolated overlay network in order to ensure Layer 3 segmentation."             
-  desc "'The networking mode on a container when set to \'--net=host\', skips placing the container inside separate network stack. In essence, this choice tells Docker to not containerize the container\'s networking. This would network-wise mean that the container lives "outside" in the main Docker host and has full access to its network interfaces."
+  desc "The networking mode on a container when set to \'--net=host\', skips placing the container inside separate network stack. In essence, this choice tells Docker to not containerize the container\'s networking. This would network-wise mean that the container lives "outside" in the main Docker host and has full access to its network interfaces."
 
   tag 'Docker'
   tag 'Level:2,3'
@@ -118,7 +118,6 @@ control "CSVS-7:9" do
       its(%w[HostConfig NetworkMode]) { should_not eq 'host' }
     end
   end
-end
 
 control "CSVS-" do                       
     impact 1.0                               

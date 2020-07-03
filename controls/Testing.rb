@@ -14,7 +14,7 @@ only_if('docker not found') do
     command('docker').exist?
   end
 
-control "CSVS-" do                       
+control "CSVS-12.6" do                       
   impact 1.0                               
   title "Verify that nodes as well as the Docker Engine are up to date."             
   desc "'There are frequent releases for Docker software that address security vulnerabilities,product bugs and bring in new functionality. Keep a tab on these product updates and upgrade as frequently as when new security vulnerabilities are fixed or deemed correct for your organization."

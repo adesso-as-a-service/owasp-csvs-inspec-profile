@@ -64,7 +64,7 @@ control "CSVS-2.6.2" do
   impact 1.0                                
   title "Create /tmp directory"             
   desc "An optional description..."
-  #verifying SELinux
+  #verifying SELinux to be done
   
   tag 'Docker'
   tag 'Level:3'
@@ -103,7 +103,7 @@ control "CSVS-2.10" do
     tag 'cis-docker-1.12.0': '1.6'
   
     ref 'Docker Engine Security', url: 'https://docs.docker.com/engine/security/'
-    ref 'On Docker security: \'docker\' group considered harmful', url: 'https://www.zopyx.com/andreas-jung/contents/on-docker-security-docker-group-considered-harmful'
+    ref 'On Docker security: \'docker\' group considered harmful', url: 'https://www.zopyx.com/andreas-jung/s/on-docker-security-docker-group-considered-harmful'
     ref 'Why we don\'t let non-root users run Docker in CentOS, Fedora, or RHEL', url: 'http://www.projectatomic.io/blog/2015/08/why-we-dont-let-non-root-users-run-docker-in-centos-fedora-or-rhel/'
   
     
@@ -120,7 +120,7 @@ control "CSVS-2.15.1" do
     impact 1.0                               
     title "Verify that direct access to nodes (e.g. via SSH or RDP) is restricted as much as possible."             
     desc "An optional description..."
-  # do not run ssh within contianers
+  # do not run ssh within contianers. RDP should be done yet.
     tag 'Docker'
     tag 'Level:1,2,3'
     tag 'container runtime'
